@@ -1,0 +1,6 @@
+naro:
+  target_file: "/opt/storage/datasets/naro/target.txt"
+  output_root_dir: "/opt/storage/datasets/naro/scraped-results"
+  logfile: "/opt/storage/datasets/naro/scraped-results/result.log"
+  info_top_url: "https://ncode.syosetu.com/novelview/infotop/ncode"
+  top_url: "https://ncode.syosetu.com/"

@@ -1,0 +1,4 @@
+hydra-core
+beautifulsoup4
+tqdm
+loguru

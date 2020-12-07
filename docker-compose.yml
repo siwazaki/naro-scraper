@@ -1,0 +1,16 @@
+version: "3"
+services:
+  workspace:
+    build: .
+    container_name: "naro-scrapyer-workspace"
+    working_dir: "/workspace"
+    tty: true
+    volumes:
+      - .:/workspace
+      - /opt/storage:/opt/storage
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.168.215.0/24

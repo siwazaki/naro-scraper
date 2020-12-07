@@ -45,11 +45,14 @@ def scrape_one(ncode, cfg):
     fetches = range(1, nb_parts + 1)
     for part in tqdm(fetches):
         try:
+            path = os.path.join(novel_dir, f"{ncode}-{part}.txt")
+            if os.path.exists(path):
+                continue
             url = f"{cfg.naro.top_url}/{ncode}/{part}/"
             res = request.urlopen(url)
             soup = BeautifulSoup(res, "html.parser")
             content = soup.select_one("#novel_honbun").text
-            path = os.path.join(novel_dir, f"{ncode}-{part}.txt")
+
             with open(path, "w", encoding="utf-8") as f:
                 f.write(content)
         except Exception:
@@ -76,6 +79,7 @@ def main(cfg):
     for ncode in tqdm(ncodes):
         ncode = ncode.strip()
         scrape_one(ncode, cfg)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
